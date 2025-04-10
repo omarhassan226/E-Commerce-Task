@@ -5,11 +5,13 @@
   </div>
 
   <div class="cart-sidebar__content">
-    @for (cartItem of cart; track cartItem.product.id) {
-      <app-cart-item [cartItem]="cartItem" />
-    } @empty {
-      <h2>No Items</h2>
-    }
+    <div class="cart-sidebar__content__items">
+      @for (cartItem of cart; track cartItem.product.id) {
+        <app-cart-item [cartItem]="cartItem" />
+      } @empty {
+        <h2>No Items</h2>
+      }
+    </div>
 
     @if (cart.length) {
       <div class="cart-sidebar__content__subtotal">
