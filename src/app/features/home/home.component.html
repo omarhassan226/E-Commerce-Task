@@ -1,0 +1,11 @@
+<main>
+    @for(heroItem of heroSectionItems; track heroItem.image) {
+        <app-hero-section [heroItem]="heroItem" />
+    }
+
+    <div class="products-container">
+        <app-product-card />
+        <app-product-card />
+        <app-product-card />
+    </div>
+</main>

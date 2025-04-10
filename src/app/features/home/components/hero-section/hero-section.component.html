@@ -1,1 +1,7 @@
-<p>hero-section works!</p>
+<div class="hero-sec" [ngStyle]="backgroundStyle">
+    <div class="hero-sec__content">
+        <span class="hero-sec__content__sub">{{heroItem.subtitle}}</span>
+        <span class="hero-sec__content__heading">{{heroItem.heading}}</span>
+        <button class="hero-sec__content__btn">{{heroItem.buttonTitle}}</button>
+    </div>
+</div>

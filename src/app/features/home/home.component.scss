@@ -1,0 +1,10 @@
+main {
+    min-height: 100vh;
+}
+
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    margin-inline: 100px;
+    gap: 50px;
+}
