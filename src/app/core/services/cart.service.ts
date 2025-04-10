@@ -1,11 +1,73 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { ICart } from '../models/cart.model';
-import { MOCKING_CART } from '../mocks/cart.mock';
+import { ProductsService } from './products.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  public isCartOpen = true;
-  public cart: ICart[] = MOCKING_CART;
+  /* Start of Private Region */
+  private productsService = inject(ProductsService);
+  /* End of Private Region */
+
+  /* Start of Public Region */
+  public isCartOpen = false;
+  public cart: ICart[] = [];
+  /* End of Public Region */
+
+  addProductToTheCart(productId: string) {
+    const cartIndex = this.cart.findIndex((cartItem) => cartItem.product.id === productId);
+
+    if (cartIndex !== -1) {
+      this.increaseCartItemQuantity(this.cart[cartIndex]);
+      return;
+    }
+
+    const product = this.productsService.products.find((product) => product.id === productId);
+
+    if (product) {
+      const newCartItem: ICart = {
+        product,
+        quantity: 1,
+      };
+
+      this.cart.push(newCartItem);
+    }
+  }
+
+  increaseCartItemQuantity(cartItem: ICart) {
+    if (cartItem.quantity < cartItem.product.stock) {
+      cartItem.quantity++;
+    }
+  }
+
+  decreaseCartItemQuantity(cartItem: ICart) {
+    if (cartItem.quantity > 1) {
+      cartItem.quantity--;
+    }
+  }
+
+  removeCartItem(productId: string) {
+    this.cart = this.cart.filter((cartItem) => cartItem.product.id !== productId);
+  }
+
+  getTotalPrice() {
+    let totalPrice = 0;
+
+    this.cart.forEach((cartItem) => {
+      totalPrice += cartItem.quantity * cartItem.product.price;
+    });
+
+    return totalPrice;
+  }
+
+  getTotalQuantity() {
+    let totalQuantity = 0;
+
+    this.cart.forEach((cartItem) => {
+      totalQuantity += cartItem.quantity;
+    });
+
+    return totalQuantity;
+  }
 }

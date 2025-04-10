@@ -9,5 +9,5 @@
     <span class="product__info__price">${{ product.price }}</span>
   </div>
 
-  <button class="product__btn">Add to bag</button>
+  <button class="product__btn" (click)="addProductToTheCart(product.id)">Add to bag</button>
 </div>

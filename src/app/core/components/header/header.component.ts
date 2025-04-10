@@ -12,6 +12,10 @@ import { CartSidebarComponent } from './cart-sidebar/cart-sidebar.component';
 export class HeaderComponent {
   private cartService = inject(CartService);
 
+  get totalQuantity() {
+    return this.cartService.getTotalQuantity();
+  }
+
   set isCartOpen(value: boolean) {
     this.cartService.isCartOpen = value;
   }

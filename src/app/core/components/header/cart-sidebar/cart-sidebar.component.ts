@@ -19,6 +19,10 @@ export class CartSidebarComponent {
     return this.cartService.isCartOpen;
   }
 
+  get totalPrice() {
+    return this.cartService.getTotalPrice();
+  }
+
   set isCartOpen(value: boolean) {
     this.cartService.isCartOpen = value;
   }

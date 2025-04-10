@@ -7,11 +7,15 @@
   <div class="cart-sidebar__content">
     @for (cartItem of cart; track cartItem.product.id) {
       <app-cart-item [cartItem]="cartItem" />
+    } @empty {
+      <h2>No Items</h2>
     }
 
-    <div class="cart-sidebar__content__subtotal">
-      <span>subtotal</span>
-      <span>$350</span>
-    </div>
+    @if (cart.length) {
+      <div class="cart-sidebar__content__subtotal">
+        <span>subtotal</span>
+        <span>${{ totalPrice }}</span>
+      </div>
+    }
   </div>
 </div>

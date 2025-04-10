@@ -1,12 +1,14 @@
 <nav class="nav-container">
   <div class="nav-container__empty-space"></div>
   <img class="nav-container__logo" alt="CHANEL" src="assets/images/channal-logo.webp" />
-  <img
-    class="nav-container__cart"
-    alt="CART"
-    src="assets/icons/cart-icon.svg"
-    (click)="isCartOpen = true"
-  />
+
+  <div class="nav-container__cart">
+    @if (totalQuantity) {
+      <span>{{ totalQuantity }}</span>
+    }
+
+    <img alt="CART" src="assets/icons/cart-icon.svg" (click)="isCartOpen = true" />
+  </div>
 </nav>
 
 <app-cart-sidebar />

@@ -1,13 +1,17 @@
 <div class="cart-item">
   <img class="cart-item__image" [src]="'assets/images/' + cartItem.product.image" />
   <div class="cart-item__info">
-    <span class="cart-item__info__title">{{ cartItem.product.name }}</span>
+    <span class="cart-item__info__title"
+      >{{ cartItem.product.name }}
+      <img src="assets/icons/delete-icon.svg" (click)="removeCartItem()"
+    /></span>
     <span class="cart-item__info__type">{{ cartItem.product.type }}</span>
+
     <div class="cart-item__info__quantity">
       <div class="cart-item__info__quantity__actions">
-        <button>+</button>
+        <button (click)="increaseCartItemQuantity()">+</button>
         <span>{{ cartItem.quantity }}</span>
-        <button>-</button>
+        <button (click)="decreaseCartItemQuantity()">-</button>
       </div>
 
       <span class="cart-item__info__quantity__total-price"
