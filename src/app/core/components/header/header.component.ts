@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { CartSidebarComponent } from './cart-sidebar/cart-sidebar.component';
@@ -9,8 +9,12 @@ import { CartSidebarComponent } from './cart-sidebar/cart-sidebar.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   private cartService = inject(CartService);
+  
+  ngOnInit(): void {
+    this.cartService.getCartFromLocalStorage();
+  }
 
   get totalQuantity() {
     return this.cartService.getTotalQuantity();

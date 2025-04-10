@@ -20,35 +20,42 @@ export class CartService {
 
     if (cartIndex !== -1) {
       this.increaseCartItemQuantity(this.cart[cartIndex]);
+      this.isCartOpen = true;
       return;
     }
-
+    
     const product = this.productsService.products.find((product) => product.id === productId);
-
+    
     if (product) {
       const newCartItem: ICart = {
         product,
         quantity: 1,
       };
-
+      
       this.cart.push(newCartItem);
     }
+
+    this.isCartOpen = true;
+    this.updateLocalStorage();
   }
 
   increaseCartItemQuantity(cartItem: ICart) {
     if (cartItem.quantity < cartItem.product.stock) {
       cartItem.quantity++;
+      this.updateLocalStorage();
     }
   }
 
   decreaseCartItemQuantity(cartItem: ICart) {
     if (cartItem.quantity > 1) {
       cartItem.quantity--;
+      this.updateLocalStorage();
     }
   }
 
   removeCartItem(productId: string) {
     this.cart = this.cart.filter((cartItem) => cartItem.product.id !== productId);
+    this.updateLocalStorage();
   }
 
   getTotalPrice() {
@@ -69,5 +76,19 @@ export class CartService {
     });
 
     return totalQuantity;
+  }
+
+  getCartFromLocalStorage() {
+    const cart = localStorage.getItem('cart');
+
+    if(cart) {
+      this.cart = JSON.parse(cart);
+    }
+  }
+
+  updateLocalStorage() {
+    const cart = JSON.stringify(this.cart);
+
+    localStorage.setItem('cart', cart);
   }
 }
