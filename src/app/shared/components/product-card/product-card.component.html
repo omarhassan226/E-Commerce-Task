@@ -1,13 +1,13 @@
 <div class="product">
-    <div class="product__image">
-        <img src="assets/images/product-image-1.webp" />
-    </div>
+  <div class="product__image">
+    <img [src]="'assets/images/' + product.image" />
+  </div>
 
-    <div class="product__info">
-        <span class="product__info__title">bleu de chanel</span>
-        <span class="product__info__type">Eau de Parfum Spray</span>
-        <span class="product__info__price">$132</span>
-    </div>
+  <div class="product__info">
+    <span class="product__info__title">{{ product.name }}</span>
+    <span class="product__info__type">{{ product.type }}</span>
+    <span class="product__info__price">${{ product.price }}</span>
+  </div>
 
-    <button class="product__btn">Add to bag</button>
+  <button class="product__btn">Add to bag</button>
 </div>

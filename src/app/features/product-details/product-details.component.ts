@@ -8,13 +8,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
-  
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe({
       next: (params) => {
-        console.log(params['productId'])
-      }
-    })
+        console.log(params['productId']);
+      },
+    });
   }
-
 }

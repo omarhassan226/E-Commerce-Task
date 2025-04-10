@@ -1,0 +1,17 @@
+<div class="cart-sidebar" [class.open]="isCartOpen">
+  <div class="cart-sidebar__header">
+    <h3>Shopping Bag</h3>
+    <button (click)="isCartOpen = false">✕</button>
+  </div>
+
+  <div class="cart-sidebar__content">
+    @for (cartItem of cart; track cartItem.product.id) {
+      <app-cart-item [cartItem]="cartItem" />
+    }
+
+    <div class="cart-sidebar__content__subtotal">
+      <span>subtotal</span>
+      <span>$350</span>
+    </div>
+  </div>
+</div>

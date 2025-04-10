@@ -1,11 +1,11 @@
 <main>
-    @for(heroItem of heroSectionItems; track heroItem.image) {
-        <app-hero-section [heroItem]="heroItem" />
-    }
+  @for (heroItem of heroSectionItems; track heroItem.image) {
+    <app-hero-section [heroItem]="heroItem" />
+  }
 
-    <div class="products-container">
-        <app-product-card />
-        <app-product-card />
-        <app-product-card />
-    </div>
+  <div class="products-container">
+    @for (product of products; track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
 </main>

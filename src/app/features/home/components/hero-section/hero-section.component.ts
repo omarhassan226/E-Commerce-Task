@@ -8,15 +8,12 @@ import { DEFAULT_HERO_SEC_ITME } from '../../../../core/constants/hero-sec.const
   styleUrl: './hero-section.component.scss',
   standalone: false,
 })
-
 export class HeroSectionComponent {
-  @Input({required: true}) heroItem: IHeroSectionItem = DEFAULT_HERO_SEC_ITME;
-
-  public assetsSource = 'assets/images/';
+  @Input({ required: true }) heroItem: IHeroSectionItem = DEFAULT_HERO_SEC_ITME;
 
   get backgroundStyle() {
     return {
-      backgroundImage: `url(${this.assetsSource}${this.heroItem.image})`
+      backgroundImage: `url(assets/images/${this.heroItem.image})`,
     };
   }
 }
