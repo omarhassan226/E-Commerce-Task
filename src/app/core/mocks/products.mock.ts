@@ -20,7 +20,7 @@ export const MOCKING_PRODUCTS: IProduct[] = [
     descriptions: [],
   },
   {
-    id: '2',
+    id: '3',
     name: 'coco mademoiselle',
     type: 'Eau de Parfum Spray',
     price: 143,

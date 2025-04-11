@@ -6,7 +6,9 @@ main {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-inline: 10%;
+
+  background-color: white;
+  padding-inline: 10%;
   gap: 50px;
 
   app-product-card {

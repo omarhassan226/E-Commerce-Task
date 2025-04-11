@@ -9,9 +9,9 @@
 
     <div class="cart-item__info__quantity">
       <div class="cart-item__info__quantity__actions">
-        <button (click)="increaseCartItemQuantity()">+</button>
+        <button (click)="increaseCartItemQuantity()" [class.deactive]="cartItem.quantity === cartItem.product.stock">+</button>
         <span>{{ cartItem.quantity }}</span>
-        <button (click)="decreaseCartItemQuantity()">-</button>
+        <button (click)="decreaseCartItemQuantity()" [class.deactive]="cartItem.quantity === 1">-</button>
       </div>
 
       <span class="cart-item__info__quantity__total-price"
