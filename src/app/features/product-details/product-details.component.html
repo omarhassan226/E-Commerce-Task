@@ -13,7 +13,7 @@
 
   <article class="product__description">
     <h2>Product Description</h2>
-    
+
     @for (description of product.descriptions; track description) {
       <span class="product__description__title">{{ description.title }}</span>
       <p class="product__description__content" [innerHTML]="description.description"></p>

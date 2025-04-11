@@ -20,6 +20,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   public product: IProduct = DEFAULT_PRODUCT;
 
   ngOnInit(): void {
+    window.scroll({
+      behavior: 'smooth',
+      top: 0,
+    });
     this.subscription.add(
       this.activatedRoute.params.subscribe({
         next: (params) => {

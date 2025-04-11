@@ -24,43 +24,43 @@ main {
     gap: 10px;
 
     &__title {
-        width: 100%;
-        border-bottom: 0.2rem solid black;
-        text-transform: uppercase;
-        font-size: 1.2rem;
-        font-weight: bold;
+      width: 100%;
+      border-bottom: 0.2rem solid black;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
     &__type {
-        font-size: 0.75rem;
+      font-size: 0.75rem;
     }
 
     &__price {
-        margin-top: 20px;
-        font-weight: bold;
+      margin-top: 20px;
+      font-weight: bold;
     }
 
     &__stock {
-        text-transform: uppercase;
-        font-size: 0.75rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
     }
-    
-    &__btn {
-        cursor: pointer;
-        background-color: black;
-        color: white;
-        border: none;
-        outline: none;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        width: 100%;
-        margin-top: auto;
-        padding-block: 10px;
-        transition: all 0.2s;
 
-        &:hover {
-            background-color: gray;
-        }
+    &__btn {
+      cursor: pointer;
+      background-color: black;
+      color: white;
+      border: none;
+      outline: none;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      width: 100%;
+      margin-top: auto;
+      padding-block: 10px;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: gray;
+      }
     }
   }
 
@@ -68,17 +68,17 @@ main {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-      h2 {
-        border-bottom: 0.2rem solid black;
-        margin-bottom: 20px;
+    h2 {
+      border-bottom: 0.2rem solid black;
+      margin-bottom: 20px;
     }
-    
-    &__title {
-        font-weight: bold;
-      }
 
-      &__content {
-        margin-bottom: 20px;
-      }
+    &__title {
+      font-weight: bold;
+    }
+
+    &__content {
+      margin-bottom: 20px;
+    }
   }
 }

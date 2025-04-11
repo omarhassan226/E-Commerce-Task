@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { IHeroSectionItem } from '../../core/models/hero-sec.model';
 import { MOCKING_HERO_SECTIONS } from '../../core/mocks/hero-sections.mock';
 import { IProduct } from '../../core/models/product.model';
@@ -11,9 +11,16 @@ import { ProductsService } from '../../core/services/products.service';
   styleUrl: './home.component.scss',
   standalone: false,
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   private productsService = inject(ProductsService);
   public heroSectionItems: IHeroSectionItem[] = MOCKING_HERO_SECTIONS;
+
+  ngOnInit(): void {
+    window.scroll({
+      behavior: 'smooth',
+      top: 0,
+    });
+  }
 
   get products() {
     return this.productsService.products;

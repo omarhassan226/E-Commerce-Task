@@ -13,7 +13,7 @@ export class HeroSectionComponent {
 
   onClick() {
     window.scroll({
-      top: document.body.scrollHeight,
+      top: document.body.scrollHeight - 1500,
       behavior: 'smooth',
     });
   }
