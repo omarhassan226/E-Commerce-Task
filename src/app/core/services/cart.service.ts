@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { ICart } from '../models/cart.model';
 import { ProductsService } from './products.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -19,24 +20,46 @@ export class CartService {
     const cartIndex = this.cart.findIndex((cartItem) => cartItem.product.id === productId);
 
     if (cartIndex !== -1) {
+      this.cartAlarts(this.cart[cartIndex]);
       this.increaseCartItemQuantity(this.cart[cartIndex]);
       this.isCartOpen = true;
       return;
     }
-    
+
     const product = this.productsService.products.find((product) => product.id === productId);
-    
+
     if (product) {
       const newCartItem: ICart = {
         product,
         quantity: 1,
       };
-      
+
       this.cart.push(newCartItem);
+      this.cartAlarts(newCartItem);
     }
 
     this.isCartOpen = true;
     this.updateLocalStorage();
+  }
+
+  cartAlarts(cartItem: ICart) {
+    if (cartItem.quantity === cartItem.product.stock) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Stock limit reached!',
+        text: 'You cannot add more of this item to your cart.',
+        showConfirmButton: true,
+      });
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: 'Product added!',
+        text: 'Check your cart for more details.',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      });
+    }
   }
 
   increaseCartItemQuantity(cartItem: ICart) {
@@ -81,7 +104,7 @@ export class CartService {
   getCartFromLocalStorage() {
     const cart = localStorage.getItem('cart');
 
-    if(cart) {
+    if (cart) {
       this.cart = JSON.parse(cart);
     }
   }

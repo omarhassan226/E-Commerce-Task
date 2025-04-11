@@ -9,9 +9,9 @@ import { CartSidebarComponent } from './cart-sidebar/cart-sidebar.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   private cartService = inject(CartService);
-  
+
   ngOnInit(): void {
     this.cartService.getCartFromLocalStorage();
   }
