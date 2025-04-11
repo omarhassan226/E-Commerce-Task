@@ -4,6 +4,7 @@ import { IProduct } from '../../core/models/product.model';
 import { DEFAULT_PRODUCT } from '../../core/constants/product.constant';
 import { ProductsService } from '../../core/services/products.service';
 import { Subscription } from 'rxjs';
+import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,6 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   private productsService = inject(ProductsService);
+  private cartService = inject(CartService);
   private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);
   private subscription = new Subscription();
@@ -34,6 +36,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         },
       })
     );
+  }
+
+  addProductToTheCart() {
+    this.cartService.addProductToTheCart(this.product.id);
   }
 
   ngOnDestroy(): void {

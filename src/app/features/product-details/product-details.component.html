@@ -7,7 +7,7 @@
       <span class="product__info__type">{{ product.type }}</span>
       <span class="product__info__price">${{ product.price }}</span>
       <span class="product__info__stock">Items in stock: {{ product.stock }}</span>
-      <button class="product__info__btn">add to bag</button>
+      <button class="product__info__btn" (click)="addProductToTheCart()">add to bag</button>
     </div>
   </div>
 
