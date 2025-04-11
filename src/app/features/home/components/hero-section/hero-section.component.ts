@@ -11,6 +11,13 @@ import { DEFAULT_HERO_SEC_ITME } from '../../../../core/constants/hero-sec.const
 export class HeroSectionComponent {
   @Input({ required: true }) heroItem: IHeroSectionItem = DEFAULT_HERO_SEC_ITME;
 
+  onClick() {
+    window.scroll({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
+  }
+
   get backgroundStyle() {
     return {
       backgroundImage: `url(assets/images/${this.heroItem.image})`,

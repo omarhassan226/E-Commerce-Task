@@ -23,15 +23,15 @@ export class CartService {
       this.isCartOpen = true;
       return;
     }
-    
+
     const product = this.productsService.products.find((product) => product.id === productId);
-    
+
     if (product) {
       const newCartItem: ICart = {
         product,
         quantity: 1,
       };
-      
+
       this.cart.push(newCartItem);
     }
 
@@ -81,7 +81,7 @@ export class CartService {
   getCartFromLocalStorage() {
     const cart = localStorage.getItem('cart');
 
-    if(cart) {
+    if (cart) {
       this.cart = JSON.parse(cart);
     }
   }

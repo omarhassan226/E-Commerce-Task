@@ -1,6 +1,6 @@
 <div class="product">
   <div class="product__image">
-    <img [src]="'assets/images/' + product.image" />
+    <img [src]="'assets/images/' + product.image" [routerLink]="'product-details/' + product.id" />
   </div>
 
   <div class="product__info">

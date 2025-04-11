@@ -7,4 +7,8 @@ import { MOCKING_PRODUCTS } from '../mocks/products.mock';
 })
 export class ProductsService {
   products: IProduct[] = MOCKING_PRODUCTS;
+
+  getProductById(productId: string) {
+    return this.products.find((product) => product.id === productId);
+  }
 }
