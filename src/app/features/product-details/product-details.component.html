@@ -1,0 +1,22 @@
+<main>
+  <div class="product">
+    <img class="product__image" [src]="'assets/images/' + product.image" />
+
+    <div class="product__info">
+      <span class="product__info__title">{{ product.name }}</span>
+      <span class="product__info__type">{{ product.type }}</span>
+      <span class="product__info__price">${{ product.price }}</span>
+      <span class="product__info__stock">Items in stock: {{ product.stock }}</span>
+      <button class="product__info__btn">add to bag</button>
+    </div>
+  </div>
+
+  <article class="product__description">
+    <h2>Product Description</h2>
+    
+    @for (description of product.descriptions; track description) {
+      <span class="product__description__title">{{ description.title }}</span>
+      <p class="product__description__content" [innerHTML]="description.description"></p>
+    }
+  </article>
+</main>

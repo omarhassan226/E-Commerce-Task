@@ -1,12 +1,12 @@
 import { Component, inject, Input } from '@angular/core';
-import { IProduct } from '../../../core/models/product.model';
+import { RouterModule } from '@angular/router';
 import { DEFAULT_PRODUCT } from '../../../core/constants/product.constant';
+import { IProduct } from '../../../core/models/product.model';
 import { CartService } from '../../../core/services/cart.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-card',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
 })
